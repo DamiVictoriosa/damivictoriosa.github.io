@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dami Victoriosa — Coaching, Retorno Consciente y Empleabilidad</title>
+  <!-- Tipografías oficiales: Montserrat para encabezados y Plus Jakarta Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS — ESTÉTICA LUMINOSA Y EJECUTIVA DE DAMI VICTORIOSA
+       ========================================================================== */
+    :root {
+      --navy: #0F2C59;
+      --navy-dark: #091B38;
+      --navy-soft: #1B3F7A;
+      --crimson: #C8162B;
+      --crimson-dark: #8E0E1D;
+      --crimson-light: #FFF1F2;
+      --white: #FFFFFF;
+      --pearl: #F8FAFC;
+      --text-main: #1E293B;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --shadow-sm: 0 4px 16px rgba(15, 44, 89, 0.05);
+      --shadow-md: 0 12px 30px rgba(15, 44, 89, 0.08);
+      --shadow-lg: 0 20px 45px rgba(15, 44, 89, 0.10);
+      --radius: 16px;
+      --transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    h1, h2, h3, h4, .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       ANIMACIONES SUTILES DE ENTRADA Y LOGOTIPO
+       ========================================================================== */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes checkPop {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      70% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .anim-up {
+      animation: fadeSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .logo-animated {
+      animation: logoFloat 4.5s ease-in-out infinite;
+    }
+
+    .check-animated {
+      transform-origin: 55% 72%;
+      animation: checkPop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* ==========================================================================
+       BARRA SUPERIOR STICKY Y NAVEGACIÓN POR PESTAÑAS
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(15, 44, 89, 0.04);
+      width: 100%;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand-trigger {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 4px 0;
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.06rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-tagline {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--crimson);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--navy);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-tab-btn:hover {
+      background: var(--pearl);
+      color: var(--crimson);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(15, 44, 89, 0.16);
+    }
+
+    .nav-cta-btn {
+      background: var(--crimson);
+      color: var(--white);
+      border: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(200, 22, 43, 0.22);
+    }
+
+    .nav-cta-btn:hover {
+      background: var(--crimson-dark);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--navy);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px 18px;
+      gap: 6px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer .nav-tab-btn {
+      text-align: left;
+      width: 100%;
+      padding: 12px 14px;
+    }
+
+    /* ==========================================================================
+       SISTEMA DE PESTAÑAS SPA Y SECCIONES CLARAS
+       ========================================================================== */
+    .tab-panel {
+      display: none;
+      width: 100%;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 68px 0;
+      background-color: var(--white);
+    }
+
+    .section-pearl {
+      padding: 68px 0;
+      background-color: var(--pearl);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 44px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--crimson-light);
+      color: var(--crimson);
+      border: 1px solid rgba(200, 22, 43, 0.18);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    /* ==========================================================================
+       BOTONES EJECUTIVOS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 13px 22px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(200, 22, 43, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(200, 22, 43, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(15, 44, 89, 0.16);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-subtle {
+      background: var(--pearl);
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .btn-subtle:hover {
+      border-color: var(--navy);
+      background: var(--white);
+    }
+
+    /* ==========================================================================
+       SECCIÓN HERO LUMINOSA EN BLANCO PURO (#FFFFFF)
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(180deg, var(--white) 0%, var(--pearl) 100%);
+      color: var(--text-main);
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 44, 89, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: var(--crimson-light);
+      border: 1px solid rgba(200, 22, 43, 0.2);
+      color: var(--crimson);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4.1vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--crimson);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.06rem;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 32px 26px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      border-top: 5px solid var(--crimson);
+    }
+
+    .hero-card-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+
+    .hero-card-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .mini-stat-box {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 13px;
+    }
+
+    .mini-stat-box strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+
+    .mini-stat-box span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       CUADRÍCULAS, TARJETAS Y ACCESOS RÁPIDOS
+       ========================================================================== */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(15, 44, 89, 0.22);
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .icon-badge.crimson {
+      background: var(--crimson-light);
+      border-color: rgba(200, 22, 43, 0.2);
+      color: var(--crimson);
+    }
+
+    .quick-nav-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .quick-tile {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      width: 100%;
+    }
+
+    .quick-tile:hover {
+      border-color: var(--crimson);
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-tile strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+
+    .quick-tile span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SELECTOR DE MODALIDADES Y TARIFAS
+       ========================================================================== */
+    .modality-bar {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modality-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .modality-btn {
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modality-btn:hover {
+      border-color: var(--navy);
+    }
+
+    .modality-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+      box-shadow: 0 6px 16px rgba(15, 44, 89, 0.16);
+    }
+
+    .modality-note {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--crimson);
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--crimson);
+      box-shadow: var(--shadow-md);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .plan-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--crimson);
+      background: var(--crimson-light);
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 14px 0 6px;
+    }
+
+    .plan-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .plan-modality-pill {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      color: var(--navy);
+    }
+
+    .plan-breakdown {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .plan-features li {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--pearl);
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .feature-check {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .table-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      margin-top: 36px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--pearl);
+      color: var(--navy);
+      border-bottom: 2px solid var(--border);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 16px;
+    }
+
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       METODOLOGÍA EN 4 ETAPAS Y FILTROS DE TESTIMONIOS
+       ========================================================================== */
+    .timeline-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .step-chip {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .step-chip:hover {
+      border-color: var(--navy);
+    }
+
+    .step-chip.active {
+      background: var(--crimson);
+      border-color: var(--crimson);
+      color: var(--white);
+    }
+
+    .filter-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    /* ==========================================================================
+       PAGOS, FORMULARIO Y MODAL DE RESERVA
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 11px;
+      border: 1.5px solid var(--border);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(15, 44, 89, 0.08);
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .payment-card {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .payment-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.92rem;
+      margin-bottom: 3px;
+    }
+
+    .payment-card span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       PIE DE PÁGINA LUMINOSO EN PERLA CLARO (#F8FAFC)
+       ========================================================================== */
+    .footer {
+      background: var(--pearl);
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 30px;
+      margin-top: 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer h4 {
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links button,
+    .footer-links a {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: left;
+      padding: 0;
+      transition: var(--transition);
+    }
+
+    .footer-links button:hover,
+    .footer-links a:hover {
+      color: var(--crimson);
+    }
+
+    .footer-bottom {
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       MODAL DE RESERVA RÁPIDA
+       ========================================================================== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 44, 89, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: fadeSlideUp 0.3s ease both;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--pearl);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background: var(--crimson-light);
+      border-color: var(--crimson);
+    }
+
+    /* ==========================================================================
+       RESPONSIVIDAD PARA MÓVILES Y TABLETS
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .nav-tabs,
+      .nav-cta-btn {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .contact-grid,
+      .grid-3,
+      .footer-grid,
+      .quick-nav-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-2,
+      .payment-grid,
+      .hero-mini-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       BARRA SUPERIOR DE NAVEGACIÓN (STICKY) Y 4 PESTAÑAS
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <button type="button" class="brand-trigger" onclick="switchTab('inicio')">
+        <!-- Logotipo oficial SVG: D en Azul Marino (#0F2C59) + Check biselado en Rojo Carmesí (#C8162B) y Borgoña (#8E0E1D) -->
+        <svg class="logo-animated" width="46" height="44" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Dami Victoriosa">
+          <defs>
+            <mask id="nav-d-cutout">
+              <rect width="124" height="112" fill="white" />
+              <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+            </mask>
+          </defs>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#nav-d-cutout)" />
+          <g class="check-animated">
+            <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+            <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+          </g>
+        </svg>
+        <div class="brand-text-group">
+          <span class="brand-name">Dami Victoriosa</span>
+          <span class="brand-tagline">Retorno Consciente &bull; RRHH</span>
+        </div>
+      </button>
+
+      <nav class="nav-tabs" aria-label="Navegación principal">
+        <button type="button" class="nav-tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">Inicio</button>
+        <button type="button" class="nav-tab-btn" data-tab="sobre-dami" onclick="switchTab('sobre-dami')">Sobre Dami</button>
+        <button type="button" class="nav-tab-btn" data-tab="programas" onclick="switchTab('programas')">Programas y Tarifas</button>
+        <button type="button" class="nav-tab-btn" data-tab="contacto" onclick="switchTab('contacto')">Pagos y Contacto</button>
+      </nav>
+
+      <button type="button" class="nav-cta-btn" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">Agendar Sesión</button>
+
+      <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú desplegable para dispositivos móviles -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button type="button" class="nav-tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">Inicio</button>
+      <button type="button" class="nav-tab-btn" data-tab="sobre-dami" onclick="switchTab('sobre-dami')">Sobre Dami</button>
+      <button type="button" class="nav-tab-btn" data-tab="programas" onclick="switchTab('programas')">Programas y Tarifas</button>
+      <button type="button" class="nav-tab-btn" data-tab="contacto" onclick="switchTab('contacto')">Pagos y Contacto</button>
+      <button type="button" class="btn btn-primary" style="margin-top: 8px;" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">Agendar por WhatsApp</button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       PESTAÑA 1: INICIO
+       ======================================================================== -->
+  <main id="tab-inicio" class="tab-panel active">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="anim-up">
+          <span class="hero-kicker">Acompañamiento Emocional + Estrategia de RRHH</span>
+          <h1>&iquest;Quieres volver a Venezuela pero <span>el miedo te frena</span>?</h1>
+          <p class="hero-desc">
+            Acompañamos a venezolanos en el exterior y en transición a transformar la incertidumbre y la parálisis en un plan de retorno claro, humano y respaldado por experiencia real en Recursos Humanos, reclutamiento y reinserción laboral.
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">
+              Agendar Sesión por WhatsApp
+            </button>
+            <button type="button" class="btn btn-outline" onclick="switchTab('programas')">
+              Ver Programas y Tarifas
+            </button>
+            <a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer" class="btn btn-subtle">
+              Instagram @damivictoriosa
+            </a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Sesiones Online, Híbridas y Presenciales
+            </span>
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Visión de RRHH y Empleabilidad
+            </span>
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              4 Pasarelas de Pago Habilitadas
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-card anim-up">
+          <svg class="logo-animated" width="94" height="86" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;" aria-label="Emblema Dami Victoriosa">
+            <defs>
+              <mask id="hero-d-cutout">
+                <rect width="124" height="112" fill="white" />
+                <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+              </mask>
+            </defs>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#hero-d-cutout)" />
+            <g class="check-animated">
+              <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+              <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+            </g>
+          </svg>
+          <div class="hero-card-title">Damaris Sandoval</div>
+          <div class="hero-card-sub">Coach de Retorno Consciente &amp; Especialista en RRHH</div>
+
+          <div class="hero-mini-stats">
+            <div class="mini-stat-box">
+              <strong>Desde $35 USD</strong>
+              <span>Sesión 1 a 1 Online</span>
+            </div>
+            <div class="mini-stat-box">
+              <strong>Presencial / Híbrido</strong>
+              <span>Caracas y Miranda</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="openBookingModal('Mentoría 4 Sesiones: Retorno sin Miedo')">
+            Solicitar Información en WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de 3 accesos rápidos -->
+    <div class="quick-nav-strip">
+      <div class="container quick-nav-grid">
+        <button type="button" class="quick-tile" onclick="switchTab('sobre-dami')">
+          <div>
+            <strong>Conoce a Dami</strong>
+            <span>Historia, misión y RRHH</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button type="button" class="quick-tile" onclick="switchTab('programas')">
+          <div>
+            <strong>Tarifas y Modalidades</strong>
+            <span>Online, híbrido y presencial</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button type="button" class="quick-tile" onclick="switchTab('contacto')">
+          <div>
+            <strong>Medios de Pago</strong>
+            <span>Zelle, Binance, PayPal, PM</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Puntos de dolor atendidos -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Puntos de Dolor Atendidos</span>
+          <h2 class="section-title">No estás solo frente a la decisión de volver</h2>
+          <p class="section-subtitle">
+            El retorno consciente combina contención emocional sin juicios con una estrategia práctica para reinsertarte con seguridad.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon-badge crimson">01</div>
+            <h3>Parálisis por Miedo e Incertidumbre</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Supera el bloqueo mental, el miedo al &laquo;qué dirán&raquo; y la culpa de querer reconstruir tu proyecto de vida con calma.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge">02</div>
+            <h3>Reinserción Laboral con Visión RRHH</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Adapta tu CV, perfil profesional y discurso de entrevistas a la realidad laboral actual con respaldo en selección y talento.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge crimson">03</div>
+            <h3>Plan de Vida y Readaptación</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Ordena prioridades familiares, tiempos y etapas antes y después de llegar para evitar el choque emocional y operativo.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 38px;">
+          <button type="button" class="btn btn-primary" onclick="switchTab('programas')">
+            Explorar Todos los Programas y Precios
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTAÑA 2: SOBRE DAMI
+       ======================================================================== -->
+  <main id="tab-sobre-dami" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Identidad y Propósito</span>
+          <h2 class="section-title">Sobre Dami Victoriosa</h2>
+          <p class="section-subtitle">
+            Dirigido por <strong>Damaris del Carmen Sandoval Pérez</strong> (RIF V-16.248.722-8), uniendo coaching de autoconocimiento con experiencia real en Recursos Humanos.
+          </p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 48px;">
+          <div class="card">
+            <div class="icon-badge crimson">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+            </div>
+            <h3>Propuesta Única de Valor</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">
+              Acompañamiento estratégico, contención emocional y desarrollo personal para venezolanos en el exterior y en transición que buscan reinventarse, potenciar su empleabilidad y planificar su futuro con propósito, claridad y serenidad.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3>Diferencial en Recursos Humanos</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">
+              Tu experiencia fuera del país no es un paréntesis vacío: es resiliencia y adaptabilidad. Te ayudamos a traducir tu trayectoria en un perfil competitivo para entrevistas, empresas o proyectos propios.
+            </p>
+          </div>
+        </div>
+
+        <!-- Selector interactivo de Metodología en 4 Etapas -->
+        <div class="section-header" style="margin-bottom: 24px;">
+          <span class="badge-pill">Ruta de Trabajo</span>
+          <h3 class="section-title" style="font-size: 1.65rem;">Metodología en 4 Etapas</h3>
+        </div>
+
+        <div class="timeline-tabs">
+          <button type="button" class="step-chip active" onclick="selectStep(0, this)">1. Reconocer el Quiebre</button>
+          <button type="button" class="step-chip" onclick="selectStep(1, this)">2. Orden Emocional</button>
+          <button type="button" class="step-chip" onclick="selectStep(2, this)">3. Estrategia RRHH y Vida</button>
+          <button type="button" class="step-chip" onclick="selectStep(3, this)">4. Ejecución y Retorno</button>
+        </div>
+
+        <div class="card" id="stepDetailCard" style="max-width: 820px; margin: 0 auto 52px; background: var(--pearl);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+            <h4 id="stepTitle" style="font-size: 1.2rem;">1. Reconocer el Quiebre</h4>
+            <span class="badge-pill" id="stepTag" style="margin: 0;">Claridad Inicial</span>
+          </div>
+          <p id="stepDesc" style="color: var(--text-muted); margin-bottom: 18px;">
+            Identificamos con honestidad y sin juicio qué está generando tu parálisis actual: miedo al cambio, agotamiento migratorio, dudas laborales o presión familiar, para trazar tu primer mapa de ruta.
+          </p>
+          <button type="button" class="btn btn-primary" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">
+            Agendar Esta Etapa
+          </button>
+        </div>
+
+        <!-- Sección Casos y Testimonios con filtros -->
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="badge-pill">Historias de Transformación</span>
+          <h3 class="section-title" style="font-size: 1.65rem;">Casos y Testimonios</h3>
+        </div>
+
+        <div class="filter-row">
+          <button type="button" class="modality-btn active" onclick="filterTestimonials('todos', this)">Todos</button>
+          <button type="button" class="modality-btn" onclick="filterTestimonials('empleabilidad', this)">Empleabilidad y RRHH</button>
+          <button type="button" class="modality-btn" onclick="filterTestimonials('retorno', this)">Retorno y Plan de Vida</button>
+        </div>
+
+        <div class="grid-3" id="testimonialsGrid">
+          <div class="card testimonial-item" data-cat="retorno">
+            <span class="plan-badge">Chile &rarr; Caracas</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Llevaba tiempo paralizada por el miedo a dejar mi empleo sin tener un orden claro. En las sesiones logré ordenar mis ideas y quitarme la culpa de querer regresar a mi país.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Mariana R. &bull; Mentoría de Retorno</strong>
+          </div>
+
+          <div class="card testimonial-item" data-cat="empleabilidad">
+            <span class="plan-badge">España &rarr; Venezuela</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Actualizar mi currículum y ensayar entrevistas con enfoque de Recursos Humanos me dio seguridad real sobre cómo presentar mi experiencia internacional.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Ricardo M. &bull; Asesoría RRHH y Empleo</strong>
+          </div>
+
+          <div class="card testimonial-item" data-cat="retorno">
+            <span class="plan-badge">Colombia &rarr; Valencia</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Entendí que volver con un plan y acompañada me ahorró meses de desgaste y me permitió estructurar mi etapa familiar con calma.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Elena G. &bull; Programa Integral</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTAÑA 3: PROGRAMAS Y TARIFAS
+       ======================================================================== -->
+  <main id="tab-programas" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Inversión y Modalidades</span>
+          <h2 class="section-title">Programas y Tarifas Oficiales</h2>
+          <p class="section-subtitle">
+            Precios base oficiales en <strong>100% Online</strong> y cálculo transparente para <strong>Modalidad Híbrida</strong> y <strong>Presencial Particular</strong> (Caracas y Miranda).
+          </p>
+        </div>
+
+        <!-- Selector en tiempo real de modalidad -->
+        <div class="modality-bar">
+          <div>
+            <strong style="color: var(--navy); font-size: 0.95rem; display: block;">Selecciona la modalidad de atención:</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Las tarifas y botones de WhatsApp se actualizan automáticamente.</span>
+          </div>
+          <div class="modality-buttons">
+            <button type="button" class="modality-btn active" data-mod="online" onclick="setModality('online', this)">100% Online</button>
+            <button type="button" class="modality-btn" data-mod="hibrida" onclick="setModality('hibrida', this)">Modalidad Híbrida</button>
+            <button type="button" class="modality-btn" data-mod="presencial" onclick="setModality('presencial', this)">Presencial Particular</button>
+          </div>
+        </div>
+
+        <div class="modality-note" id="modalityNote">
+          <strong>100% Online (Zoom / Google Meet):</strong> Tarifas base oficiales sin recargo adicional. Ideal para quienes residen en el exterior o prefieren sesiones remotas desde cualquier ciudad.
+        </div>
+
+        <!-- 4 Tarjetas de Programas -->
+        <div class="grid-2" id="pricingCardsGrid">
+          <!-- Tarjeta 1 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">1 Sesión &bull; 60 Minutos</span>
+              <h3>Sesión 1 a 1: Reconocer el Quiebre y Ruta</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-quiebre">$35 USD</span>
+                <span class="plan-modality-pill" id="pill-quiebre">100% Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-quiebre">Tarifa base oficial: $35 USD online &bull; Presencial particular: +$20 USD ($55 USD).</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Espacio privado para reconocer el punto de quiebre y bloqueo actual</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Claridad sobre opciones de retorno, reinvención o empleo</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Hoja de ruta inicial con próximos pasos concretos</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" id="btn-quiebre" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">
+              Reservar Sesión ($35 USD)
+            </button>
+          </div>
+
+          <!-- Tarjeta 2 (Destacada) -->
+          <div class="pricing-card featured">
+            <span class="popular-tag">Más Solicitado</span>
+            <div>
+              <span class="plan-badge">4 Sesiones &bull; 4 Semanas</span>
+              <h3>Mentoría 4 Sesiones: Retorno sin Miedo</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-mentoria4">$180 USD</span>
+                <span class="plan-modality-pill" id="pill-mentoria4">100% Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-mentoria4">Base online: $180 USD ($45/sesión) &bull; Híbrida (2 pres. + 2 online): $210 USD &bull; Presencial: $240 USD (+$15/sesión).</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>4 sesiones 1 a 1 de 60 minutos con seguimiento continuo</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Gestión del miedo al cambio, desarraigo y toma de decisiones</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Guías prácticas para ordenar tu plan de transición</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-mentoria4" onclick="openBookingModal('Mentoría 4 Sesiones: Retorno sin Miedo')">
+              Reservar Mentoría ($180 USD)
+            </button>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">8 Sesiones &bull; 8 Semanas + RRHH</span>
+              <h3>Paquete Integral 8 Sesiones: Recomenzar con Victoria</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-integral8">$340 USD</span>
+                <span class="plan-modality-pill" id="pill-integral8">100% Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-integral8">Base online: $340 USD ($42,50/sesión) &bull; Híbrida (4 pres. + 4 online): $390 USD &bull; Presencial: $440 USD (+$12,50/sesión).</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Acompañamiento integral antes y después del retorno</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Reinserción laboral, revisión de CV y preparación de entrevistas RRHH</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Plan productivo, familiar y de readaptación paso a paso</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-secondary" id="btn-integral8" onclick="openBookingModal('Paquete Integral 8 Sesiones: Recomenzar con Victoria')">
+              Reservar Paquete ($340 USD)
+            </button>
+          </div>
+
+          <!-- Tarjeta 4 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">1 Sesión &bull; 60 Minutos</span>
+              <h3>Sesión de Seguimiento y Readaptación</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-seguimiento">$50 USD</span>
+                <span class="plan-modality-pill" id="pill-seguimiento">100% Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-seguimiento">Tarifa base oficial: $50 USD online &bull; Presencial particular: +$20 USD ($70 USD).</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Refuerzo puntual tras la llegada o en momentos de ajuste</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Revisión de avances, metas laborales y bienestar emocional</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Ajustes prácticos sobre la marcha con acompañamiento cercano</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" id="btn-seguimiento" onclick="openBookingModal('Sesión de Seguimiento y Readaptación')">
+              Reservar Seguimiento ($50 USD)
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla comparativa completa -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Servicio / Programa</th>
+                <th>100% Online</th>
+                <th>Modalidad Híbrida</th>
+                <th>Presencial Particular</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sesión 1 a 1: Reconocer el Quiebre</strong> (1 ses.)</td>
+                <td><strong>$35 USD</strong></td>
+                <td>Aplica en paquetes multisesión</td>
+                <td><strong>$55 USD</strong> (+$20 traslado/espacio)</td>
+              </tr>
+              <tr>
+                <td><strong>Mentoría 4 Sesiones: Retorno sin Miedo</strong></td>
+                <td><strong>$180 USD</strong> ($45 c/u)</td>
+                <td><strong>$210 USD</strong> (2 pres. + 2 online)</td>
+                <td><strong>$240 USD</strong> ($60 c/u &bull; +$15/ses.)</td>
+              </tr>
+              <tr>
+                <td><strong>Paquete Integral 8 Sesiones + RRHH</strong></td>
+                <td><strong>$340 USD</strong> ($42,50 c/u)</td>
+                <td><strong>$390 USD</strong> (4 pres. + 4 online)</td>
+                <td><strong>$440 USD</strong> ($55 c/u &bull; +$12,50/ses.)</td>
+              </tr>
+              <tr>
+                <td><strong>Sesión de Seguimiento / Readaptación</strong> (1 ses.)</td>
+                <td><strong>$50 USD</strong></td>
+                <td>Aplica en paquetes multisesión</td>
+                <td><strong>$70 USD</strong> (+$20 traslado/espacio)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTAÑA 4: PAGOS Y CONTACTO
+       ======================================================================== -->
+  <main id="tab-contacto" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Canales Oficiales y Cobros</span>
+          <h2 class="section-title">Pagos y Contacto Directo</h2>
+          <p class="section-subtitle">
+            Coordinación ágil por WhatsApp con respaldo en 4 métodos de pago (en divisas USD/USDT o bolívares a tasa oficial BCV del día).
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <div class="card" style="margin-bottom: 22px;">
+              <h3>Pasarelas de Pago Habilitadas</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">
+                Los datos exactos de cuenta se comparten al confirmar tu cupo por WhatsApp y el comprobante se reporta por ese mismo canal.
+              </p>
+              <div class="payment-grid">
+                <div class="payment-card">
+                  <strong>Pago Móvil (VES)</strong>
+                  <span>Banca nacional &bull; Tasa oficial BCV del día</span>
+                </div>
+                <div class="payment-card">
+                  <strong>Zelle (USD)</strong>
+                  <span>Transferencia directa en dólares americanos</span>
+                </div>
+                <div class="payment-card">
+                  <strong>Binance Pay (USDT)</strong>
+                  <span>Pago ágil internacional en criptoactivos</span>
+                </div>
+                <div class="payment-card">
+                  <strong>PayPal (USD)</strong>
+                  <span>Pagos internacionales y tarjetas</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Canales Oficiales de Dami Victoriosa</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; margin-bottom: 16px;">
+                Atención 100% online a nivel internacional y sesiones particulares / híbridas en Caracas y Miranda.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="https://wa.me/584128234607?text=Hola%20Dami%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20sesiones%20y%20programas." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  WhatsApp Oficial
+                </a>
+                <a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                  Instagram @damivictoriosa
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Envía tu Solicitud Directa a WhatsApp</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px; margin-bottom: 18px;">
+              Completa estos datos para generar tu mensaje ordenado y abrir el chat con Dami.
+            </p>
+            <form id="directForm" onsubmit="submitDirectForm(event)">
+              <div class="form-group">
+                <label for="cName">Nombre y Apellido</label>
+                <input type="text" id="cName" class="form-control" placeholder="Ej. Valentina Morales" required />
+              </div>
+              <div class="form-group">
+                <label for="cCountry">País o Ciudad Actual</label>
+                <input type="text" id="cCountry" class="form-control" placeholder="Ej. Santiago, Chile / Caracas" required />
+              </div>
+              <div class="form-group">
+                <label for="cProgram">Programa o Servicio de Interés</label>
+                <select id="cProgram" class="form-control">
+                  <option value="Sesión 1 a 1: Reconocer el Quiebre y Ruta ($35 USD Online / $55 USD Presencial)">Sesión 1 a 1: Reconocer el Quiebre y Ruta ($35 Online / $55 Presencial)</option>
+                  <option value="Mentoría 4 Sesiones: Retorno sin Miedo ($180 Online / $210 Híbrida / $240 Presencial)">Mentoría 4 Sesiones: Retorno sin Miedo ($180 Online / $210 Híbrida / $240 Presencial)</option>
+                  <option value="Paquete Integral 8 Sesiones + RRHH ($340 Online / $390 Híbrida / $440 Presencial)">Paquete Integral 8 Sesiones + RRHH ($340 Online / $390 Híbrida / $440 Presencial)</option>
+                  <option value="Sesión de Seguimiento y Readaptación ($50 USD Online / $70 USD Presencial)">Sesión de Seguimiento y Readaptación ($50 USD Online / $70 Presencial)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cPayment">Método de Pago Preferido</label>
+                <select id="cPayment" class="form-control">
+                  <option value="Zelle">Zelle</option>
+                  <option value="Binance Pay (USDT)">Binance Pay (USDT)</option>
+                  <option value="PayPal">PayPal</option>
+                  <option value="Pago Móvil (Tasa BCV)">Pago Móvil (Tasa BCV)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cNotes">&iquest;Qué te gustaría trabajar en tu proceso?</label>
+                <textarea id="cNotes" class="form-control" rows="3" placeholder="Cuéntame brevemente tu situación o duda..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Abrir WhatsApp con mi Solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PIE DE PÁGINA LUMINOSO (FOOTER EN PERLA CLARO #F8FAFC)
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <svg width="42" height="38" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Dami Victoriosa">
+              <defs>
+                <mask id="footer-d-cutout">
+                  <rect width="124" height="112" fill="white" />
+                  <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+                </mask>
+              </defs>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#footer-d-cutout)" />
+              <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+              <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+            </svg>
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; color: #0F2C59; font-size: 1.02rem;">Dami Victoriosa</span>
+          </div>
+          <p style="font-size: 0.86rem; color: var(--text-muted); max-width: 340px;">
+            Coaching de autoconocimiento, acompañamiento para el retorno consciente y estrategia de empleabilidad / RRHH.
+          </p>
+        </div>
+
+        <div>
+          <h4>Secciones</h4>
+          <ul class="footer-links">
+            <li><button type="button" onclick="switchTab('inicio')">Inicio</button></li>
+            <li><button type="button" onclick="switchTab('sobre-dami')">Sobre Dami</button></li>
+            <li><button type="button" onclick="switchTab('programas')">Programas y Tarifas</button></li>
+            <li><button type="button" onclick="switchTab('contacto')">Pagos y Contacto</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Canales Oficiales</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/584128234607?text=Hola%20Dami%2C%20quiero%20agendar%20una%20sesi%C3%B3n." target="_blank" rel="noopener noreferrer">WhatsApp Directo</a></li>
+            <li><a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer">Instagram (@damivictoriosa)</a></li>
+            <li><span style="font-size: 0.82rem; color: var(--text-muted);">RIF: V-16.248.722-8</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dami Victoriosa &bull; Damaris del Carmen Sandoval Pérez. Todos los derechos reservados.</span>
+        <span>Atención Online Global &bull; Presencial en Caracas y Miranda</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL DE RESERVA RÁPIDA A WHATSAPP
+       ======================================================================== -->
+  <div class="modal-backdrop" id="bookingModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button type="button" class="modal-close" aria-label="Cerrar" onclick="closeBookingModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <span class="badge-pill">Reserva Rápida</span>
+      <h3 id="modalTitle" style="font-size: 1.25rem; margin-bottom: 6px;">Agendar por WhatsApp</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">
+        Completa tus datos básicos para enviar tu solicitud directa a Dami.
+      </p>
+
+      <form id="modalBookingForm" onsubmit="submitModalBooking(event)">
+        <div class="form-group">
+          <label for="mName">Tu Nombre</label>
+          <input type="text" id="mName" class="form-control" placeholder="Tu nombre completo" required />
+        </div>
+        <div class="form-group">
+          <label for="mLocation">Ciudad / País</label>
+          <input type="text" id="mLocation" class="form-control" placeholder="Ej. Madrid, España / Caracas" required />
+        </div>
+        <div class="form-group">
+          <label for="mModality">Modalidad Preferida</label>
+          <select id="mModality" class="form-control">
+            <option value="100% Online">100% Online</option>
+            <option value="Modalidad Híbrida">Modalidad Híbrida</option>
+            <option value="Presencial Particular (Caracas / Miranda)">Presencial Particular (Caracas / Miranda)</option>
+          </select>
+        </div>
+        <input type="hidden" id="mProgram" value="Sesión 1 a 1: Reconocer el Quiebre y Ruta" />
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Continuar a WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       LÓGICA DE NAVEGACIÓN, TARIFAS Y REDIRECCIÓN A WHATSAPP
+       ======================================================================== -->
+  <script>
+    const WHATSAPP_NUMBER = "584128234607";
+    const INSTAGRAM_URL = "https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==";
+
+    let currentModality = "online";
+
+    // Diccionario oficial de tarifas por modalidad (100% Online, Híbrida y Presencial Particular)
+    const pricingByModality = {
+      online: {
+        label: "100% Online",
+        note: "<strong>100% Online (Zoom / Google Meet):</strong> Tarifas base oficiales sin recargo adicional. Ideal para quienes residen en el exterior o prefieren sesiones remotas desde cualquier ciudad.",
+        quiebre: {
+          price: "$35 USD",
+          break: "Tarifa base oficial: $35 USD online &bull; Presencial particular: +$20 USD ($55 USD).",
+          btn: "Reservar Sesión ($35 USD)"
+        },
+        mentoria4: {
+          price: "$180 USD",
+          break: "Base online: $180 USD ($45/sesión) &bull; Híbrida (2 pres. + 2 online): $210 USD &bull; Presencial: $240 USD (+$15/sesión).",
+          btn: "Reservar Mentoría ($180 USD)"
+        },
+        integral8: {
+          price: "$340 USD",
+          break: "Base online: $340 USD ($42,50/sesión) &bull; Híbrida (4 pres. + 4 online): $390 USD &bull; Presencial: $440 USD (+$12,50/sesión).",
+          btn: "Reservar Paquete ($340 USD)"
+        },
+        seguimiento: {
+          price: "$50 USD",
+          break: "Tarifa base oficial: $50 USD online &bull; Presencial particular: +$20 USD ($70 USD).",
+          btn: "Reservar Seguimiento ($50 USD)"
+        }
+      },
+      hibrida: {
+        label: "Modalidad Híbrida",
+        note: "<strong>Modalidad Híbrida:</strong> Combina encuentros presenciales en Caracas/Miranda con sesiones online según el paquete, sumando únicamente el suplemento por los encuentros presenciales.",
+        quiebre: {
+          price: "$55 USD",
+          break: "Sesión individual presencial en Caracas/Miranda ($35 base + $20 traslado y espacio).",
+          btn: "Reservar Presencial ($55 USD)"
+        },
+        mentoria4: {
+          price: "$210 USD",
+          break: "2 sesiones presenciales + 2 sesiones online ($180 base + $30 por 2 encuentros presenciales).",
+          btn: "Reservar Híbrida ($210 USD)"
+        },
+        integral8: {
+          price: "$390 USD",
+          break: "4 sesiones presenciales + 4 sesiones online ($340 base + $50 por 4 encuentros presenciales).",
+          btn: "Reservar Híbrida ($390 USD)"
+        },
+        seguimiento: {
+          price: "$70 USD",
+          break: "Sesión de seguimiento presencial en Caracas/Miranda ($50 base + $20 traslado y espacio).",
+          btn: "Reservar Presencial ($70 USD)"
+        }
+      },
+      presencial: {
+        label: "Presencial Particular",
+        note: "<strong>Presencial Particular (Caracas / Miranda):</strong> Atención en persona con recargo calculado sobre el rango base para cubrir traslado, bloqueo de agenda y espacio.",
+        quiebre: {
+          price: "$55 USD",
+          break: "1 sesión presencial particular ($35 base + $20 traslado y espacio).",
+          btn: "Reservar Presencial ($55 USD)"
+        },
+        mentoria4: {
+          price: "$240 USD",
+          break: "4 sesiones presenciales ($60 c/u &bull; $180 base + $15 adicionales por sesión).",
+          btn: "Reservar Presencial ($240 USD)"
+        },
+        integral8: {
+          price: "$440 USD",
+          break: "8 sesiones presenciales ($55 c/u &bull; $340 base + $12,50 adicionales por sesión).",
+          btn: "Reservar Presencial ($440 USD)"
+        },
+        seguimiento: {
+          price: "$70 USD",
+          break: "1 sesión de seguimiento presencial ($50 base + $20 traslado y espacio).",
+          btn: "Reservar Presencial ($70 USD)"
+        }
+      }
+    };
+
+    // Etapas de la metodología en 4 fases
+    const stepsData = [
+      {
+        title: "1. Reconocer el Quiebre",
+        tag: "Claridad Inicial",
+        desc: "Identificamos con honestidad y sin juicio qué está generando tu parálisis actual: miedo al cambio, agotamiento migratorio, dudas laborales o presión familiar, para trazar tu primer mapa de ruta."
+      },
+      {
+        title: "2. Orden Emocional",
+        tag: "Calma y Propósito",
+        desc: "Trabajamos la culpa, el &laquo;qué dirán&raquo; y la incertidumbre para que tomes decisiones desde la serenidad y no desde el impulso o el desgaste."
+      },
+      {
+        title: "3. Estrategia RRHH y Vida",
+        tag: "Empleabilidad y Plan",
+        desc: "Estructuramos tu hoja de ruta práctica, adaptamos tu perfil profesional o CV a la realidad laboral y definimos tiempos, metas y prioridades."
+      },
+      {
+        title: "4. Ejecución y Retorno",
+        tag: "Acompañamiento Activo",
+        desc: "Avanzamos con seguimiento claro para que cada paso —antes, durante o después del retorno— tenga dirección y respaldo."
+      }
+    ];
+
+    /**
+     * Cambia entre las 4 pestañas principales de la aplicación
+     */
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-panel").forEach(panel => {
+        panel.classList.remove("active");
+      });
+      const targetPanel = document.getElementById("tab-" + tabId);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+
+      document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
+
+      const drawer = document.getElementById("mobileDrawer");
+      if (drawer) {
+        drawer.classList.remove("open");
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /**
+     * Abre o cierra el menú de navegación en pantallas móviles
+     */
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      if (drawer) {
+        drawer.classList.toggle("open");
+      }
+    }
+
+    /**
+     * Actualiza las tarjetas de precios según la modalidad elegida
+     */
+    function setModality(mod, btnEl) {
+      currentModality = mod;
+      document.querySelectorAll(".modality-btn[data-mod]").forEach(b => b.classList.remove("active"));
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+
+      const data = pricingByModality[mod];
+      document.getElementById("modalityNote").innerHTML = data.note;
+
+      ["quiebre", "mentoria4", "integral8", "seguimiento"].forEach(key => {
+        document.getElementById("price-" + key).textContent = data[key].price;
+        document.getElementById("pill-" + key).textContent = data.label;
+        document.getElementById("break-" + key).innerHTML = data[key].break;
+        document.getElementById("btn-" + key).textContent = data[key].btn;
+      });
+
+      const modalMod = document.getElementById("mModality");
+      if (modalMod) {
+        if (mod === "online") modalMod.value = "100% Online";
+        if (mod === "hibrida") modalMod.value = "Modalidad Híbrida";
+        if (mod === "presencial") modalMod.value = "Presencial Particular (Caracas / Miranda)";
+      }
+    }
+
+    /**
+     * Actualiza la tarjeta de detalle de la metodología en 4 etapas
+     */
+    function selectStep(idx, btnEl) {
+      document.querySelectorAll(".step-chip").forEach(chip => chip.classList.remove("active"));
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+      const item = stepsData[idx];
+      document.getElementById("stepTitle").innerHTML = item.title;
+      document.getElementById("stepTag").textContent = item.tag;
+      document.getElementById("stepDesc").innerHTML = item.desc;
+    }
+
+    /**
+     * Filtra los testimonios por categoría
+     */
+    function filterTestimonials(category, btnEl) {
+      const filterButtons = document.querySelectorAll(".filter-row .modality-btn");
+      filterButtons.forEach(b => b.classList.remove("active"));
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+
+      document.querySelectorAll(".testimonial-item").forEach(card => {
+        if (category === "todos" || card.dataset.cat === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    /**
+     * Abre el modal de reserva rápida con el programa seleccionado
+     */
+    function openBookingModal(programName) {
+      document.getElementById("mProgram").value = programName;
+      document.getElementById("modalTitle").textContent = "Agendar: " + programName;
+      document.getElementById("bookingModal").classList.add("open");
+    }
+
+    /**
+     * Cierra el modal de reserva rápida
+     */
+    function closeBookingModal() {
+      document.getElementById("bookingModal").classList.remove("open");
+    }
+
+    /**
+     * Cierra el modal al hacer clic fuera del cuadro principal
+     */
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === "bookingModal") {
+        closeBookingModal();
+      }
+    }
+
+    /**
+     * Procesa el formulario del modal y redirige a WhatsApp
+     */
+    function submitModalBooking(e) {
+      e.preventDefault();
+      try {
+        const name = document.getElementById("mName").value.trim();
+        const loc = document.getElementById("mLocation").value.trim();
+        const mod = document.getElementById("mModality").value;
+        const prog = document.getElementById("mProgram").value;
+
+        const text = [
+          `Hola Dami, soy ${name} (${loc}).`,
+          `Quiero solicitar información para:`,
+          `- Programa: ${prog}`,
+          `- Modalidad: ${mod}`
+        ].join("\n");
+
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+        closeBookingModal();
+      } catch (err) {
+        console.error("Error al abrir WhatsApp desde el modal:", err);
+      }
+    }
+
+    /**
+     * Procesa el formulario de contacto directo y redirige a WhatsApp
+     */
+    function submitDirectForm(e) {
+      e.preventDefault();
+      try {
+        const name = document.getElementById("cName").value.trim();
+        const country = document.getElementById("cCountry").value.trim();
+        const prog = document.getElementById("cProgram").value;
+        const pay = document.getElementById("cPayment").value;
+        const notes = document.getElementById("cNotes").value.trim();
+
+        const msg = [
+          `Hola Dami, mi nombre es ${name} y escribo desde ${country}.`,
+          `Programa de interés: ${prog}`,
+          `Método de pago preferido: ${pay}`,
+          notes ? `Detalle: ${notes}` : ""
+        ].filter(Boolean).join("\n");
+
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      } catch (err) {
+        console.error("Error al enviar solicitud directa a WhatsApp:", err);
+      }
+    }
+  </script>
+</body>
+</html>
