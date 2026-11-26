@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dami Victoriosa: Desarrollo Personal, Retorno Consciente y Recursos Humanos</title>
+  <!-- Tipografias oficiales: Montserrat para encabezados y Plus Jakarta Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS: ESTETICA LUMINOSA Y EJECUTIVA DE DAMI VICTORIOSA
+       ========================================================================== */
+    :root {
+      --navy: #0F2C59;
+      --navy-dark: #091B38;
+      --navy-soft: #1B3F7A;
+      --crimson: #C8162B;
+      --crimson-dark: #8E0E1D;
+      --crimson-light: #FFF1F2;
+      --white: #FFFFFF;
+      --pearl: #F8FAFC;
+      --text-main: #1E293B;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --shadow-sm: 0 4px 16px rgba(15, 44, 89, 0.05);
+      --shadow-md: 0 12px 30px rgba(15, 44, 89, 0.08);
+      --shadow-lg: 0 20px 45px rgba(15, 44, 89, 0.10);
+      --radius: 16px;
+      --transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    h1, h2, h3, h4, .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       ANIMACIONES SUTILES DE ENTRADA Y LOGOTIPO
+       ========================================================================== */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes checkPop {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      70% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .anim-up {
+      animation: fadeSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .logo-animated {
+      animation: logoFloat 4.5s ease-in-out infinite;
+    }
+
+    .check-animated {
+      transform-origin: 55% 72%;
+      animation: checkPop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* ==========================================================================
+       BARRA SUPERIOR STICKY Y NAVEGACION POR PESTANAS
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(15, 44, 89, 0.04);
+      width: 100%;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand-trigger {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 4px 0;
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.06rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-tagline {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--crimson);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--navy);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-tab-btn:hover {
+      background: var(--pearl);
+      color: var(--crimson);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(15, 44, 89, 0.16);
+    }
+
+    .nav-cta-btn {
+      background: var(--crimson);
+      color: var(--white);
+      border: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(200, 22, 43, 0.22);
+    }
+
+    .nav-cta-btn:hover {
+      background: var(--crimson-dark);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--navy);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px 18px;
+      gap: 6px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer .nav-tab-btn {
+      text-align: left;
+      width: 100%;
+      padding: 12px 14px;
+    }
+
+    /* ==========================================================================
+       SISTEMA DE PESTANAS SPA Y SECCIONES CLARAS
+       ========================================================================== */
+    .tab-panel {
+      display: none;
+      width: 100%;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 68px 0;
+      background-color: var(--white);
+    }
+
+    .section-pearl {
+      padding: 68px 0;
+      background-color: var(--pearl);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 44px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--crimson-light);
+      color: var(--crimson);
+      border: 1px solid rgba(200, 22, 43, 0.18);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    /* ==========================================================================
+       BOTONES EJECUTIVOS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 13px 22px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(200, 22, 43, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(200, 22, 43, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(15, 44, 89, 0.16);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-subtle {
+      background: var(--pearl);
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .btn-subtle:hover {
+      border-color: var(--navy);
+      background: var(--white);
+    }
+
+    /* ==========================================================================
+       SECCION HERO LUMINOSA EN BLANCO PURO (#FFFFFF)
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(180deg, var(--white) 0%, var(--pearl) 100%);
+      color: var(--text-main);
+      padding: 68px 0 76px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 44, 89, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: var(--crimson-light);
+      border: 1px solid rgba(200, 22, 43, 0.2);
+      color: var(--crimson);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4.1vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--crimson);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.06rem;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 32px 26px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      border-top: 5px solid var(--crimson);
+    }
+
+    .hero-card-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+
+    .hero-card-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .mini-stat-box {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 13px;
+    }
+
+    .mini-stat-box strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+
+    .mini-stat-box span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       CUADRICULAS, TARJETAS Y ACCESOS RAPIDOS
+       ========================================================================== */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(15, 44, 89, 0.22);
+    }
+
+    .card-pearl-highlight {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--crimson);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 48px;
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .icon-badge.crimson {
+      background: var(--crimson-light);
+      border-color: rgba(200, 22, 43, 0.2);
+      color: var(--crimson);
+    }
+
+    .quick-nav-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .quick-tile {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      width: 100%;
+    }
+
+    .quick-tile:hover {
+      border-color: var(--crimson);
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-tile strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+
+    .quick-tile span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SELECTOR DE MODALIDADES Y TARIFAS
+       ========================================================================== */
+    .modality-bar {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modality-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .modality-btn {
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modality-btn:hover {
+      border-color: var(--navy);
+    }
+
+    .modality-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+      box-shadow: 0 6px 16px rgba(15, 44, 89, 0.16);
+    }
+
+    .modality-note {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--crimson);
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--crimson);
+      box-shadow: var(--shadow-md);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .plan-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--crimson);
+      background: var(--crimson-light);
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 6px;
+    }
+
+    .plan-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.72rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .plan-modality-pill {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      color: var(--navy);
+    }
+
+    .plan-breakdown {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .plan-features li {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--pearl);
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .feature-check {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .table-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      margin-top: 36px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--pearl);
+      color: var(--navy);
+      border-bottom: 2px solid var(--border);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 16px;
+    }
+
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       METODOLOGIA EN 4 ETAPAS Y FILTROS DE VOCES REALES
+       ========================================================================== */
+    .timeline-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .step-chip {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .step-chip:hover {
+      border-color: var(--navy);
+    }
+
+    .step-chip.active {
+      background: var(--crimson);
+      border-color: var(--crimson);
+      color: var(--white);
+    }
+
+    .filter-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    /* ==========================================================================
+       PAGOS, FORMULARIO Y MODAL DE RESERVA
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 11px;
+      border: 1.5px solid var(--border);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(15, 44, 89, 0.08);
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .payment-card {
+      background: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .payment-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.92rem;
+      margin-bottom: 3px;
+    }
+
+    .payment-card span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       PIE DE PAGINA LUMINOSO EN PERLA CLARO (#F8FAFC)
+       ========================================================================== */
+    .footer {
+      background: var(--pearl);
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 30px;
+      margin-top: 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer h4 {
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links button,
+    .footer-links a {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: left;
+      padding: 0;
+      transition: var(--transition);
+    }
+
+    .footer-links button:hover,
+    .footer-links a:hover {
+      color: var(--crimson);
+    }
+
+    .footer-bottom {
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       MODAL DE RESERVA RAPIDA
+       ========================================================================== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 44, 89, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: fadeSlideUp 0.3s ease both;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--pearl);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background: var(--crimson-light);
+      border-color: var(--crimson);
+    }
+
+    /* ==========================================================================
+       RESPONSIVIDAD PARA MOVILES Y TABLETS
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .nav-tabs,
+      .nav-cta-btn {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .contact-grid,
+      .grid-3,
+      .footer-grid,
+      .quick-nav-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-2,
+      .payment-grid,
+      .hero-mini-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       BARRA SUPERIOR DE NAVEGACION (STICKY) Y 4 PESTANAS
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <button type="button" class="brand-trigger" onclick="switchTab('inicio')">
+        <!-- Logotipo oficial SVG: D en Azul Marino (#0F2C59) + Check biselado en Rojo Carmesi (#C8162B) y Borgona (#8E0E1D) -->
+        <svg class="logo-animated" width="46" height="44" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Dami Victoriosa">
+          <defs>
+            <mask id="nav-d-cutout">
+              <rect width="124" height="112" fill="white" />
+              <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+            </mask>
+          </defs>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#nav-d-cutout)" />
+          <g class="check-animated">
+            <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+            <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+          </g>
+        </svg>
+        <div class="brand-text-group">
+          <span class="brand-name">Dami Victoriosa</span>
+          <span class="brand-tagline">Retorno Consciente &bull; RRHH</span>
+        </div>
+      </button>
+
+      <nav class="nav-tabs" aria-label="Navegacion principal">
+        <button type="button" class="nav-tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">Inicio</button>
+        <button type="button" class="nav-tab-btn" data-tab="sobre-dami" onclick="switchTab('sobre-dami')">Sobre Dami</button>
+        <button type="button" class="nav-tab-btn" data-tab="programas" onclick="switchTab('programas')">Programas y Tarifas</button>
+        <button type="button" class="nav-tab-btn" data-tab="contacto" onclick="switchTab('contacto')">Pagos y Contacto</button>
+      </nav>
+
+      <button type="button" class="nav-cta-btn" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">Agendar Sesión</button>
+
+      <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menu" onclick="toggleMobileMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu desplegable para dispositivos moviles -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button type="button" class="nav-tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">Inicio</button>
+      <button type="button" class="nav-tab-btn" data-tab="sobre-dami" onclick="switchTab('sobre-dami')">Sobre Dami</button>
+      <button type="button" class="nav-tab-btn" data-tab="programas" onclick="switchTab('programas')">Programas y Tarifas</button>
+      <button type="button" class="nav-tab-btn" data-tab="contacto" onclick="switchTab('contacto')">Pagos y Contacto</button>
+      <button type="button" class="btn btn-primary" style="margin-top: 8px;" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">Agendar Sesión</button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       PESTANA 1: INICIO
+       ======================================================================== -->
+  <main id="tab-inicio" class="tab-panel active">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="anim-up">
+          <span class="hero-kicker">Desarrollo Personal, Retorno Consciente y Recursos Humanos</span>
+          <h1>&iquest;Quieres volver a Venezuela o retomar tu camino, pero <span>el miedo te frena</span>?</h1>
+          <p class="hero-desc">
+            Servicio integral orientado al desarrollo personal y organizacional. Acompañamos a personas en momentos de cambio, redefinición o retorno a Venezuela, así como a equipos y empresas que buscan fortalecer su dinámica humana, combinando cercanía, claridad y estructura práctica.
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">
+              Agendar Sesión por WhatsApp
+            </button>
+            <button type="button" class="btn btn-outline" onclick="switchTab('programas')">
+              Ver Programas y Tarifas
+            </button>
+            <a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer" class="btn btn-subtle">
+              Instagram @damivictoriosa
+            </a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Modalidad Flexible: Online y Presencial
+            </span>
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Experiencia Real en Recursos Humanos
+            </span>
+            <span class="trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Sesiones 1 a 1 y Talleres Grupales
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-card anim-up">
+          <svg class="logo-animated" width="94" height="86" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;" aria-label="Emblema Dami Victoriosa">
+            <defs>
+              <mask id="hero-d-cutout">
+                <rect width="124" height="112" fill="white" />
+                <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+              </mask>
+            </defs>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#hero-d-cutout)" />
+            <g class="check-animated">
+              <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+              <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+            </g>
+          </svg>
+          <div class="hero-card-title">Damaris Sandoval</div>
+          <div class="hero-card-sub">Desarrollo Personal, Retorno Consciente y Recursos Humanos</div>
+
+          <div class="hero-mini-stats">
+            <div class="mini-stat-box">
+              <strong>Desde $29,99 a $40</strong>
+              <span>Sesión 1 a 1 (45 a 60 min)</span>
+            </div>
+            <div class="mini-stat-box">
+              <strong>Equipos y Talleres</strong>
+              <span>5 a 10 personas (Personalizado)</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="openBookingModal('Información General de Servicios y Sesiones')">
+            Solicitar Información en WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de 3 accesos rapidos -->
+    <div class="quick-nav-strip">
+      <div class="container quick-nav-grid">
+        <button type="button" class="quick-tile" onclick="switchTab('sobre-dami')">
+          <div>
+            <strong>Conoce a Dami</strong>
+            <span>Historia, propósito y RRHH</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button type="button" class="quick-tile" onclick="switchTab('programas')">
+          <div>
+            <strong>Tarifas y Modalidades</strong>
+            <span>1 a 1, paquetes y talleres</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button type="button" class="quick-tile" onclick="switchTab('contacto')">
+          <div>
+            <strong>Medios de Pago</strong>
+            <span>Pago Móvil, Zelle, Binance, PayPal</span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Areas de Atencion y Acompanamiento -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Áreas de Atención</span>
+          <h2 class="section-title">Un servicio integral adaptado a tu realidad y ritmo</h2>
+          <p class="section-subtitle">
+            Cada proceso combina cercanía, empatía y estructura práctica para acompañarte paso a paso y con el corazón tranquilo.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon-badge crimson">01</div>
+            <h3>Acompañamiento en Retorno a Venezuela</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Apoyo emocional y práctico para quienes regresan al país y buscan reintegrarse con confianza y propósito. Espacio seguro para procesar la transición, ordenar prioridades personales y profesionales, y construir una etapa estable.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge">02</div>
+            <h3>Recursos Humanos y Talento</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Gestión, orientación y desarrollo del talento humano en organizaciones y equipos de trabajo. Acompañamiento en procesos de organización, comunicación interna, alineación de roles, desempeño y cohesión de colaboradores.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge crimson">03</div>
+            <h3>Desarrollo Personal y Motivación</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">
+              Sesiones enfocadas en fortalecer el autoestima, volver a tu centro, retomar tu camino y conectar con el sentido de tu vida. Claridad interior para definir pasos concretos y sostener tu motivación.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 38px;">
+          <button type="button" class="btn btn-primary" onclick="switchTab('programas')">
+            Explorar Programas y Tarifas Oficiales
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTANA 2: SOBRE DAMI
+       ======================================================================== -->
+  <main id="tab-sobre-dami" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Identidad y Propósito</span>
+          <h2 class="section-title">Sobre Dami Victoriosa</h2>
+          <p class="section-subtitle">
+            Dirigido por <strong>Damaris del Carmen Sandoval Pérez</strong> (RIF V-16.248.722-8), uniendo la experiencia vivida de emigrar y regresar con una trayectoria sólida en gestión humana.
+          </p>
+        </div>
+
+        <!-- Bloque 1: Historia y Trayectoria -->
+        <div class="grid-2" style="margin-bottom: 24px;">
+          <div class="card">
+            <div class="icon-badge crimson">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+            </div>
+            <h3>Más allá de los títulos: mi historia</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">
+              Mujer emprendedora, resiliente, sencilla y humilde, apasionada por aprender, enseñar y servir. Emigró con la maleta llena de sueños y vivió cuatro años lejos de su tierra, compartiendo con sus hijos y su familia a través de una pantalla. Regresó a Venezuela motivada por el amor más grande de su vida, sus hijos, descubriendo en ese camino su vocación de acompañar a otros a ver siempre las nubes azules y avanzar paso a paso.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3>Trayectoria en Recursos Humanos</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">
+              A lo largo de su carrera en sectores exigentes como el petrolero, las telecomunicaciones, la distribución farmacéutica y la consultoría de talento, aprendió a mirar más allá de lo técnico para descubrir el potencial de cada ser humano. Hoy une ese orden, planificación y visión institucional con una escucha cálida y libre de juicios.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Sello de acompanamiento -->
+        <div class="card-pearl-highlight">
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;">El sello de nuestro acompañamiento</h3>
+          <p style="color: var(--text-muted);">
+            Un refugio seguro, humano y cercano, sin presiones externas ni fórmulas rígidas. Acompañamos a cerrar la brecha entre la duda o el estancamiento y el lugar donde sueñas estar, ayudándote a soltar los temores ajenos, reconocer tu valor y caminar a tu propio ritmo con el corazón tranquilo.
+          </p>
+        </div>
+
+        <!-- Selector interactivo de Metodologia en 4 Etapas -->
+        <div class="section-header" style="margin-bottom: 24px;">
+          <span class="badge-pill">Ruta de Trabajo</span>
+          <h3 class="section-title" style="font-size: 1.65rem;">Metodología en 4 Etapas</h3>
+        </div>
+
+        <div class="timeline-tabs">
+          <button type="button" class="step-chip active" onclick="selectStep(0, this)">1. Reconocer el Quiebre</button>
+          <button type="button" class="step-chip" onclick="selectStep(1, this)">2. Volver a tu Centro</button>
+          <button type="button" class="step-chip" onclick="selectStep(2, this)">3. Visión de RRHH y Estructura</button>
+          <button type="button" class="step-chip" onclick="selectStep(3, this)">4. Acción Paso a Paso</button>
+        </div>
+
+        <div class="card" id="stepDetailCard" style="max-width: 820px; margin: 0 auto 52px; background: var(--pearl);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+            <h4 id="stepTitle" style="font-size: 1.2rem;">1. Reconocer el Quiebre</h4>
+            <span class="badge-pill" id="stepTag" style="margin: 0;">Escucha sin Juicio</span>
+          </div>
+          <p id="stepDesc" style="color: var(--text-muted); margin-bottom: 18px;">
+            Nos detenemos con calma para soltar el peso de querer resolverlo todo hoy. Identificamos qué está generando el miedo, la duda o el estancamiento, separando los temores imaginarios y las expectativas ajenas de tu realidad.
+          </p>
+          <button type="button" class="btn btn-primary" onclick="openBookingModal('Sesión 1 a 1: Reconocer el Quiebre y Ruta')">
+            Conversar sobre esta etapa
+          </button>
+        </div>
+
+        <!-- Seccion Inquietudes Frecuentes y Voces Reales con filtros -->
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="badge-pill">Realidades que Acompañamos</span>
+          <h3 class="section-title" style="font-size: 1.65rem;">Inquietudes Frecuentes y Voces Reales</h3>
+        </div>
+
+        <div class="filter-row">
+          <button type="button" class="modality-btn active" onclick="filterTestimonials('todos', this)">Todos</button>
+          <button type="button" class="modality-btn" onclick="filterTestimonials('retorno', this)">Retorno a Venezuela</button>
+          <button type="button" class="modality-btn" onclick="filterTestimonials('desarrollo', this)">Desarrollo y RRHH</button>
+        </div>
+
+        <div class="grid-3" id="testimonialsGrid">
+          <div class="card testimonial-item" data-cat="retorno">
+            <span class="plan-badge">Retorno Consciente</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Muchas personas llegan cargando dudas sobre si el dinero les alcanzará o si decepcionarán a su familia al volver. Al ordenar las ideas paso a paso, el miedo deja de paralizar y se transforma en una decisión en paz.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Acompañamiento en Procesos de Retorno</strong>
+          </div>
+
+          <div class="card testimonial-item" data-cat="desarrollo">
+            <span class="plan-badge">Gestión Humana y Talento</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Detrás de cada currículum, entrevista y rol en una empresa hay un ser humano con potencial enorme. Alinear lo que somos por dentro con lo que construimos afuera permite crecer con orden y seguridad.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Recursos Humanos y Desarrollo del Talento</strong>
+          </div>
+
+          <div class="card testimonial-item" data-cat="desarrollo">
+            <span class="plan-badge">Claridad y Autoestima</span>
+            <p style="font-style: italic; color: var(--text-main); margin-bottom: 12px;">
+              &laquo;Las verdaderas victorias no se miden por lo que aparentas afuera, sino por levantarte con fe, claridad y propósito. Volver a tu centro te devuelve la fuerza para avanzar a tu propio ritmo.&raquo;
+            </p>
+            <strong style="color: var(--navy); font-size: 0.9rem;">Desarrollo Personal y Motivación</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTANA 3: PROGRAMAS Y TARIFAS
+       ======================================================================== -->
+  <main id="tab-programas" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Propuesta de Servicios y Presupuestos</span>
+          <h2 class="section-title">Programas, Tarifas y Modalidades</h2>
+          <p class="section-subtitle">
+            Estructura transparente para sesiones individuales 1 a 1, paquetes continuos y sesiones grupales para equipos, en modalidad online o presencial.
+          </p>
+        </div>
+
+        <!-- Selector en tiempo real de modalidad -->
+        <div class="modality-bar">
+          <div>
+            <strong style="color: var(--navy); font-size: 0.95rem; display: block;">Selecciona la modalidad de atención:</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Las condiciones, tarifas y botones de solicitud se actualizan automáticamente.</span>
+          </div>
+          <div class="modality-buttons">
+            <button type="button" class="modality-btn active" data-mod="online" onclick="setModality('online', this)">Modalidad Online</button>
+            <button type="button" class="modality-btn" data-mod="presencial" onclick="setModality('presencial', this)">Modalidad Presencial</button>
+            <button type="button" class="modality-btn" data-mod="empresas" onclick="setModality('empresas', this)">Equipos y Empresas</button>
+          </div>
+        </div>
+
+        <div class="modality-note" id="modalityNote">
+          <strong>Modalidad Online:</strong> Sesiones 1 a 1 por videollamada con total flexibilidad desde cualquier país o ciudad. Inversión individual entre $29,99 y $40 USD según la necesidad y requerimiento específico.
+        </div>
+
+        <!-- 4 Tarjetas de Programas -->
+        <div class="grid-2" id="pricingCardsGrid">
+          <!-- Tarjeta 1 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">45 a 60 Minutos &bull; Individual</span>
+              <h3>Sesión 1 a 1: Retorno a Venezuela</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-retorno">$29,99 a $40 USD</span>
+                <span class="plan-modality-pill" id="pill-retorno">Modalidad Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-retorno">Sesión individual por videollamada (45 a 60 min). El monto varía según la necesidad y requerimiento específico.</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Contención y adaptación emocional en espacio seguro</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Ordenamiento de prioridades personales, profesionales y cotidianas</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Hoja de ruta clara para reintegrarte con confianza y propósito</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" id="btn-retorno" onclick="openBookingModal('Sesión 1 a 1: Retorno a Venezuela ($29,99 a $40 USD)')">
+              Solicitar Sesión Online
+            </button>
+          </div>
+
+          <!-- Tarjeta 2 (Destacada) -->
+          <div class="pricing-card featured">
+            <span class="popular-tag">Atención Personalizada</span>
+            <div>
+              <span class="plan-badge">45 a 60 Minutos &bull; Individual</span>
+              <h3>Sesión 1 a 1: Desarrollo Personal y Motivación</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-desarrollo">$29,99 a $40 USD</span>
+                <span class="plan-modality-pill" id="pill-desarrollo">Modalidad Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-desarrollo">Sesión individual por videollamada (45 a 60 min). El monto varía según la necesidad y requerimiento específico.</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Fortalecimiento del autoestima y claridad interior</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Reconexión con tu propio centro en momentos de duda o desgaste</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Dirección, sentido de vida y pasos concretos para sostener la motivación</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-desarrollo" onclick="openBookingModal('Sesión 1 a 1: Desarrollo Personal y Motivación ($29,99 a $40 USD)')">
+              Agendar Sesión 1 a 1
+            </button>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">Plan a Medida &bull; Reserva 50%</span>
+              <h3>Paquetes de Sesiones 1 a 1 (Acompañamiento Continuo)</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-paquete">Cotización a Medida</span>
+                <span class="plan-modality-pill" id="pill-paquete">Modalidad Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-paquete">Presupuesto ajustado al número de sesiones y frecuencia acordada. Formalización con 50% de adelanto.</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Proceso estructurado de seguimiento adaptado a tu ritmo y objetivos</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Combinación flexible de sesiones online o presenciales</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Reserva y formalización mediante 50% de adelanto</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-secondary" id="btn-paquete" onclick="openBookingModal('Paquete de Sesiones Continuas (Cotización a medida)')">
+              Solicitar Presupuesto a Medida
+            </button>
+          </div>
+
+          <!-- Tarjeta 4 -->
+          <div class="pricing-card">
+            <div>
+              <span class="plan-badge">5 a 10 Personas &bull; Organizaciones</span>
+              <h3>Sesiones Grupales, Talleres y RRHH</h3>
+              <div class="plan-price-row">
+                <span class="plan-price" id="price-grupal">Cotización Personalizada</span>
+                <span class="plan-modality-pill" id="pill-grupal">Modalidad Online</span>
+              </div>
+              <div class="plan-breakdown" id="break-grupal">Presupuesto a medida según alcance, modalidad y número de participantes (5 a 10 personas). Reserva con 50% de adelanto.</div>
+              <ul class="plan-features">
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Capacidad inicial de 5 a 10 personas para una dinámica cercana y efectiva</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Gestión del talento, comunicación interna, alineación de roles y cohesión</span>
+                </li>
+                <li>
+                  <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8162B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Presupuesto a medida según alcance y requerimientos (50% de adelanto para reserva)</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-outline" id="btn-grupal" onclick="openBookingModal('Sesiones Grupales / Talleres 5 a 10 personas (Cotización personalizada)')">
+              Cotizar Taller o Equipo
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla comparativa oficial -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Formato / Servicio</th>
+                <th>Inversión Oficial</th>
+                <th>Duración / Capacidad</th>
+                <th>Modalidad y Condiciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sesiones 1 a 1</strong> (Retorno, Desarrollo Personal o RRHH Individual)</td>
+                <td><strong>Desde $29,99 hasta $40 USD por sesión</strong></td>
+                <td>45 a 60 minutos (según requerimiento)</td>
+                <td>Online o Presencial (recargo adicional por traslado fuera de zona)</td>
+              </tr>
+              <tr>
+                <td><strong>Paquetes de Sesiones Continuas</strong> (1 a 1)</td>
+                <td><strong>Presupuesto según número de sesiones</strong></td>
+                <td>Frecuencia adaptada al cliente</td>
+                <td>Online o Presencial &bull; Reserva con 50% de adelanto</td>
+              </tr>
+              <tr>
+                <td><strong>Sesiones Grupales</strong> (Equipos, Empresas y Talleres)</td>
+                <td><strong>Cotización personalizada</strong></td>
+                <td>Capacidad inicial de 5 a 10 personas</td>
+                <td>Presencial u Online &bull; Reserva con 50% de adelanto</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Bloque de Clausulas y Condiciones del Servicio -->
+        <div class="grid-2" style="margin-top: 28px;">
+          <div class="card" style="background: var(--pearl);">
+            <h3 style="font-size: 1.08rem; margin-bottom: 8px;">Modalidad Flexible y Traslados</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Adaptación a modalidad presencial u online según lo que mejor se ajuste a cada persona o empresa. Las sesiones presenciales a domicilio o fuera de la zona incluyen un recargo adicional por traslado, evaluado en cada caso según la ubicación.
+            </p>
+          </div>
+          <div class="card" style="background: var(--pearl);">
+            <h3 style="font-size: 1.08rem; margin-bottom: 8px;">Reserva, Reprogramación y Atención</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Para formalizar la reserva en servicios corporativos o paquetes de sesiones, se solicita un 50% de adelanto. Las sesiones individuales deben cancelarse o reprogramarse con al menos 24 horas de anticipación. Atención personalizada para revisar cada caso puntual.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PESTANA 4: PAGOS Y CONTACTO
+       ======================================================================== -->
+  <main id="tab-contacto" class="tab-panel">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-pill">Canales Oficiales y Cobros</span>
+          <h2 class="section-title">Pagos y Contacto Directo</h2>
+          <p class="section-subtitle">
+            Coordinación cercana por WhatsApp para revisar tu caso puntual, definir la modalidad más adecuada y reportar tus pagos.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <div class="card" style="margin-bottom: 22px;">
+              <h3>Pasarelas de Pago Habilitadas</h3>
+              <div class="payment-grid">
+                <div class="payment-card">
+                  <strong>Pago Móvil (VES)</strong>
+                  <span>Banca nacional &bull; Tasa oficial BCV del día</span>
+                </div>
+                <div class="payment-card">
+                  <strong>Zelle (USD)</strong>
+                  <span>Transferencia directa en dólares americanos</span>
+                </div>
+                <div class="payment-card">
+                  <strong>Binance Pay (USDT)</strong>
+                  <span>Pago internacional rápido en criptoactivos</span>
+                </div>
+                <div class="payment-card">
+                  <strong>PayPal (USD)</strong>
+                  <span>Pagos internacionales y tarjetas</span>
+                </div>
+              </div>
+              <p style="color: var(--text-muted); font-size: 0.86rem; margin-top: 14px;">
+                Los datos exactos de cuenta se comparten al confirmar tu cupo por WhatsApp y el comprobante digital se reporta por ese mismo canal. También disponible efectivo USD coordinado en persona.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Canales Oficiales de Dami Victoriosa</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; margin-bottom: 16px;">
+                Atención online para venezolanos en cualquier país y modalidad presencial coordinada según ubicación. Correo: <strong>contacto@damivictoriosa.com</strong>.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="https://wa.me/584128234607?text=Hola%20Dami%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20y%20sesiones." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  WhatsApp Oficial
+                </a>
+                <a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                  Instagram @damivictoriosa
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Envía tu Solicitud Directa a WhatsApp</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px; margin-bottom: 18px;">
+              Completa estos datos para generar tu mensaje ordenado y abrir el chat con Dami.
+            </p>
+            <form id="directForm" onsubmit="submitDirectForm(event)">
+              <div class="form-group">
+                <label for="cName">Nombre y Apellido</label>
+                <input type="text" id="cName" class="form-control" placeholder="Ej. Valentina Morales" required />
+              </div>
+              <div class="form-group">
+                <label for="cCountry">País o Ciudad Actual</label>
+                <input type="text" id="cCountry" class="form-control" placeholder="Ej. Santiago, Chile / Caracas" required />
+              </div>
+              <div class="form-group">
+                <label for="cProgram">Área o Formato de Interés</label>
+                <select id="cProgram" class="form-control">
+                  <option value="Sesión 1 a 1 Retorno a Venezuela ($29,99 a $40 USD)">Sesión 1 a 1 Retorno a Venezuela ($29,99 a $40 USD)</option>
+                  <option value="Sesión 1 a 1 Desarrollo Personal y Motivación ($29,99 a $40 USD)">Sesión 1 a 1 Desarrollo Personal y Motivación ($29,99 a $40 USD)</option>
+                  <option value="Sesión 1 a 1 Orientación RRHH ($29,99 a $40 USD)">Sesión 1 a 1 Orientación RRHH ($29,99 a $40 USD)</option>
+                  <option value="Paquete de Sesiones Continuas (Cotización a medida)">Paquete de Sesiones Continuas (Cotización a medida)</option>
+                  <option value="Sesiones Grupales / Talleres 5 a 10 personas (Cotización personalizada)">Sesiones Grupales / Talleres 5 a 10 personas (Cotización personalizada)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cModality">Modalidad Preferida</label>
+                <select id="cModality" class="form-control">
+                  <option value="Modalidad Online">Modalidad Online</option>
+                  <option value="Modalidad Presencial">Modalidad Presencial</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cPayment">Método de Pago Preferido</label>
+                <select id="cPayment" class="form-control">
+                  <option value="Pago Móvil (Tasa BCV)">Pago Móvil (Tasa BCV)</option>
+                  <option value="Zelle">Zelle</option>
+                  <option value="Binance Pay (USDT)">Binance Pay (USDT)</option>
+                  <option value="PayPal">PayPal</option>
+                  <option value="Efectivo USD">Efectivo USD</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cNotes">&iquest;Cómo te sientes hoy o qué te gustaría trabajar?</label>
+                <textarea id="cNotes" class="form-control" rows="3" placeholder="Cuéntame brevemente tu situación, meta o necesidad de tu equipo..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Abrir WhatsApp con mi Solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       PIE DE PAGINA LUMINOSO (FOOTER EN PERLA CLARO #F8FAFC)
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <svg width="42" height="38" viewBox="0 0 124 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Dami Victoriosa">
+              <defs>
+                <mask id="footer-d-cutout">
+                  <rect width="124" height="112" fill="white" />
+                  <polygon points="37,48 53,73 112,10 61,84 49,98" fill="black" stroke="black" stroke-width="5.5" stroke-linejoin="miter" />
+                </mask>
+              </defs>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 22H56C83 22 98 37.5 98 60C98 82.5 83 98 56 98H24V22ZM40 36.5V83.5H55C73 83.5 82.5 74 82.5 60C82.5 46 73 36.5 55 36.5H40Z" fill="#0F2C59" mask="url(#footer-d-cutout)" />
+              <polygon points="37,48 53,73 112,10 55,77 49,98" fill="#C8162B" />
+              <polygon points="49,98 55,77 112,10 61,84" fill="#8E0E1D" />
+            </svg>
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; color: #0F2C59; font-size: 1.02rem;">Dami Victoriosa</span>
+          </div>
+          <p style="font-size: 0.86rem; color: var(--text-muted); max-width: 340px;">
+            Servicio integral orientado al desarrollo personal, acompañamiento en procesos de retorno a Venezuela y Recursos Humanos.
+          </p>
+        </div>
+
+        <div>
+          <h4>Secciones</h4>
+          <ul class="footer-links">
+            <li><button type="button" onclick="switchTab('inicio')">Inicio</button></li>
+            <li><button type="button" onclick="switchTab('sobre-dami')">Sobre Dami</button></li>
+            <li><button type="button" onclick="switchTab('programas')">Programas y Tarifas</button></li>
+            <li><button type="button" onclick="switchTab('contacto')">Pagos y Contacto</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Canales Oficiales</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/584128234607?text=Hola%20Dami%2C%20quiero%20agendar%20una%20sesi%C3%B3n." target="_blank" rel="noopener noreferrer">WhatsApp Directo</a></li>
+            <li><a href="https://www.instagram.com/damivictoriosa?jplx=MWU0aDQ3b3hhcHZncQ==" target="_blank" rel="noopener noreferrer">Instagram (@damivictoriosa)</a></li>
+            <li><a href="mailto:contacto@damivictoriosa.com">contacto@damivictoriosa.com</a></li>
+            <li><span style="font-size: 0.82rem; color: var(--text-muted);">RIF: V-16.248.722-8</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dami Victoriosa &bull; Damaris del Carmen Sandoval Pérez. Todos los derechos reservados.</span>
+        <span>Modalidad Online Global &bull; Presencial según ubicación</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL DE RESERVA RAPIDA A WHATSAPP
+       ======================================================================== -->
+  <div class="modal-backdrop" id="bookingModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button type="button" class="modal-close" aria-label="Cerrar" onclick="closeBookingModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2C59" stroke-width="1.75" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <span class="badge-pill">Reserva Rápida</span>
+      <h3 id="modalTitle" style="font-size: 1.25rem; margin-bottom: 6px;">Agendar por WhatsApp</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px;">
+        Completa tus datos básicos para enviar tu solicitud directa a Dami.
+      </p>
+
+      <form id="modalBookingForm" onsubmit="submitModalBooking(event)">
+        <div class="form-group">
+          <label for="mName">Tu Nombre</label>
+          <input type="text" id="mName" class="form-control" placeholder="Tu nombre completo" required />
+        </div>
+        <div class="form-group">
+          <label for="mLocation">Ciudad / País</label>
+          <input type="text" id="mLocation" class="form-control" placeholder="Ej. Madrid, España / Caracas" required />
+        </div>
+        <div class="form-group">
+          <label for="mModality">Modalidad Preferida</label>
+          <select id="mModality" class="form-control">
+            <option value="Modalidad Online">Modalidad Online</option>
+            <option value="Modalidad Presencial">Modalidad Presencial</option>
+            <option value="Presencial para Equipos y Talleres">Presencial para Equipos y Talleres</option>
+          </select>
+        </div>
+        <input type="hidden" id="mProgram" value="Sesión 1 a 1: Reconocer el Quiebre y Ruta" />
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Continuar a WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       LOGICA DE NAVEGACION, TARIFAS Y REDIRECCION A WHATSAPP
+       ======================================================================== -->
+  <script>
+    const WHATSAPP_NUMBER = "584128234607";
+    let currentModality = "online";
+
+    // Diccionario oficial de tarifas y condiciones por modalidad
+    const pricingByModality = {
+      online: {
+        label: "Modalidad Online",
+        note: "<strong>Modalidad Online:</strong> Sesiones 1 a 1 por videollamada con total flexibilidad desde cualquier país o ciudad. Inversión individual entre $29,99 y $40 USD según la necesidad y requerimiento específico.",
+        retorno: {
+          price: "$29,99 a $40 USD",
+          break: "Sesión individual por videollamada (45 a 60 min). El monto varía según la necesidad y requerimiento específico.",
+          btn: "Solicitar Sesión Online"
+        },
+        desarrollo: {
+          price: "$29,99 a $40 USD",
+          break: "Sesión individual por videollamada (45 a 60 min). El monto varía según la necesidad y requerimiento específico.",
+          btn: "Agendar Sesión 1 a 1"
+        },
+        paquete: {
+          price: "Cotización a Medida",
+          break: "Presupuesto ajustado al número de sesiones y frecuencia acordada. Formalización con 50% de adelanto.",
+          btn: "Solicitar Presupuesto a Medida"
+        },
+        grupal: {
+          price: "Cotización Personalizada",
+          break: "Presupuesto a medida según alcance, modalidad y número de participantes (5 a 10 personas). Reserva con 50% de adelanto.",
+          btn: "Cotizar Taller o Equipo"
+        }
+      },
+      presencial: {
+        label: "Modalidad Presencial",
+        note: "<strong>Modalidad Presencial:</strong> Atención directa adaptada a tu ubicación. Las sesiones presenciales a domicilio o fuera de la zona incluyen un recargo adicional por traslado, evaluado en cada caso según la ubicación.",
+        retorno: {
+          price: "$29,99 a $40 USD + traslado*",
+          break: "Sesión presencial (45 a 60 min). *Recargo adicional por traslado evaluado según ubicación si es a domicilio o fuera de zona.",
+          btn: "Solicitar Sesión Presencial"
+        },
+        desarrollo: {
+          price: "$29,99 a $40 USD + traslado*",
+          break: "Sesión presencial (45 a 60 min). *Recargo adicional por traslado evaluado según ubicación si es a domicilio o fuera de zona.",
+          btn: "Agendar Sesión Presencial"
+        },
+        paquete: {
+          price: "Cotización a Medida",
+          break: "Paquete presencial o combinado según número de sesiones y ubicación. Reserva formalizada con 50% de adelanto.",
+          btn: "Cotizar Paquete Presencial"
+        },
+        grupal: {
+          price: "Cotización Personalizada",
+          break: "Jornada presencial para 5 a 10 personas (traslado evaluado según sede). Formalización mediante 50% de adelanto.",
+          btn: "Cotizar Jornada Presencial"
+        }
+      },
+      empresas: {
+        label: "Equipos y Empresas",
+        note: "<strong>Equipos y Empresas:</strong> Sesiones grupales y talleres de Recursos Humanos con capacidad inicial de 5 a 10 personas. Cotización personalizada según alcance y requerimientos, formalizada con 50% de adelanto.",
+        retorno: {
+          price: "Incluible en plan",
+          break: "Orientación individual disponible como complemento para colaboradores en transición o reubicación.",
+          btn: "Consultar Plan de Apoyo"
+        },
+        desarrollo: {
+          price: "Coaching Individual",
+          break: "Acompañamiento 1 a 1 adaptable a líderes y miembros clave dentro de programas organizacionales.",
+          btn: "Solicitar Coaching Individual"
+        },
+        paquete: {
+          price: "Cotización a Medida",
+          break: "Procesos continuos para líderes o equipos de trabajo en modalidad online o presencial. Reserva con 50% de adelanto.",
+          btn: "Solicitar Propuesta Corporativa"
+        },
+        grupal: {
+          price: "Cotización Personalizada",
+          break: "Capacidad inicial de 5 a 10 personas para dinámicas cercanas y efectivas en RRHH y cohesión. Reserva con 50% de adelanto.",
+          btn: "Solicitar Cotización de Equipo"
+        }
+      }
+    };
+
+    // Etapas de la metodologia en 4 fases
+    const stepsData = [
+      {
+        title: "1. Reconocer el Quiebre",
+        tag: "Escucha sin Juicio",
+        desc: "Nos detenemos con calma para soltar el peso de querer resolverlo todo hoy. Identificamos qué está generando el miedo, la duda o el estancamiento, separando los temores imaginarios y las expectativas ajenas de tu realidad."
+      },
+      {
+        title: "2. Volver a tu Centro",
+        tag: "Claridad Interior",
+        desc: "Fortalecemos tu autoestima y tu conexión contigo mismo. Reconoces el valor de tu recorrido, tus vivencias y tus talentos para tomar decisiones desde la serenidad y la fe, no desde la angustia."
+      },
+      {
+        title: "3. Visión de RRHH y Estructura",
+        tag: "Plan Práctico",
+        desc: "Aterrizamos tu potencial con mirada estratégica de gestión humana. Ordenamos prioridades personales, profesionales, laborales o de equipo para definir metas reales y alcanzables."
+      },
+      {
+        title: "4. Acción Paso a Paso",
+        tag: "Avance con Paz",
+        desc: "Convertimos la gran decisión en pasos pequeños, claros y manejables, celebrando cada avance a tu propio ritmo con acompañamiento cercano y constante."
+      }
+    ];
+
+    /**
+     * Cambia entre las 4 pestanas principales de la aplicacion
+     */
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-panel").forEach(function (panel) {
+        panel.classList.remove("active");
+      });
+      const targetPanel = document.getElementById("tab-" + tabId);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+
+      document.querySelectorAll(".nav-tab-btn").forEach(function (btn) {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
+
+      const drawer = document.getElementById("mobileDrawer");
+      if (drawer) {
+        drawer.classList.remove("open");
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /**
+     * Abre o cierra el menu de navegacion en pantallas moviles
+     */
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      if (drawer) {
+        drawer.classList.toggle("open");
+      }
+    }
+
+    /**
+     * Actualiza las tarjetas de precios y condiciones segun la modalidad elegida
+     */
+    function setModality(mod, btnEl) {
+      currentModality = mod;
+      document.querySelectorAll(".modality-btn[data-mod]").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+
+      const data = pricingByModality[mod];
+      if (!data) return;
+
+      const noteEl = document.getElementById("modalityNote");
+      if (noteEl) {
+        noteEl.innerHTML = data.note;
+      }
+
+      ["retorno", "desarrollo", "paquete", "grupal"].forEach(function (key) {
+        const priceEl = document.getElementById("price-" + key);
+        const pillEl = document.getElementById("pill-" + key);
+        const breakEl = document.getElementById("break-" + key);
+        const btnCard = document.getElementById("btn-" + key);
+
+        if (priceEl) priceEl.textContent = data[key].price;
+        if (pillEl) pillEl.textContent = data.label;
+        if (breakEl) breakEl.innerHTML = data[key].break;
+        if (btnCard) btnCard.textContent = data[key].btn;
+      });
+
+      const modalMod = document.getElementById("mModality");
+      if (modalMod) {
+        if (mod === "online") modalMod.value = "Modalidad Online";
+        if (mod === "presencial") modalMod.value = "Modalidad Presencial";
+        if (mod === "empresas") modalMod.value = "Presencial para Equipos y Talleres";
+      }
+    }
+
+    /**
+     * Actualiza la tarjeta de detalle de la metodologia en 4 etapas
+     */
+    function selectStep(idx, btnEl) {
+      document.querySelectorAll(".step-chip").forEach(function (chip) {
+        chip.classList.remove("active");
+      });
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+      const item = stepsData[idx];
+      if (!item) return;
+
+      document.getElementById("stepTitle").innerHTML = item.title;
+      document.getElementById("stepTag").textContent = item.tag;
+      document.getElementById("stepDesc").innerHTML = item.desc;
+    }
+
+    /**
+     * Filtra las tarjetas de inquietudes frecuentes y voces reales por categoria
+     */
+    function filterTestimonials(category, btnEl) {
+      document.querySelectorAll(".filter-row .modality-btn").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      if (btnEl) {
+        btnEl.classList.add("active");
+      }
+
+      document.querySelectorAll(".testimonial-item").forEach(function (card) {
+        if (category === "todos" || card.dataset.cat === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    /**
+     * Abre el modal de reserva rapida con el programa seleccionado
+     */
+    function openBookingModal(programName) {
+      document.getElementById("mProgram").value = programName;
+      document.getElementById("modalTitle").textContent = "Agendar: " + programName;
+      document.getElementById("bookingModal").classList.add("open");
+    }
+
+    /**
+     * Cierra el modal de reserva rapida
+     */
+    function closeBookingModal() {
+      document.getElementById("bookingModal").classList.remove("open");
+    }
+
+    /**
+     * Cierra el modal al hacer clic fuera del cuadro principal
+     */
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === "bookingModal") {
+        closeBookingModal();
+      }
+    }
+
+    /**
+     * Procesa el formulario del modal y redirige a WhatsApp
+     */
+    function submitModalBooking(e) {
+      e.preventDefault();
+      try {
+        const name = document.getElementById("mName").value.trim();
+        const loc = document.getElementById("mLocation").value.trim();
+        const mod = document.getElementById("mModality").value;
+        const prog = document.getElementById("mProgram").value;
+
+        const text = [
+          "Hola Dami, soy " + name + " (" + loc + ").",
+          "Quiero solicitar información para:",
+          "- Servicio: " + prog,
+          "- Modalidad: " + mod
+        ].join("\n");
+
+        window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text), "_blank", "noopener,noreferrer");
+        closeBookingModal();
+      } catch (err) {
+        console.error("Error al abrir WhatsApp desde el modal:", err);
+      }
+    }
+
+    /**
+     * Procesa el formulario de contacto directo y redirige a WhatsApp
+     */
+    function submitDirectForm(e) {
+      e.preventDefault();
+      try {
+        const name = document.getElementById("cName").value.trim();
+        const country = document.getElementById("cCountry").value.trim();
+        const prog = document.getElementById("cProgram").value;
+        const mod = document.getElementById("cModality").value;
+        const pay = document.getElementById("cPayment").value;
+        const notes = document.getElementById("cNotes").value.trim();
+
+        const msg = [
+          "Hola Dami, mi nombre es " + name + " y escribo desde " + country + ".",
+          "Área o formato de interés: " + prog,
+          "Modalidad preferida: " + mod,
+          "Método de pago preferido: " + pay,
+          notes ? "Detalle: " + notes : ""
+        ].filter(Boolean).join("\n");
+
+        window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+      } catch (err) {
+        console.error("Error al enviar solicitud directa a WhatsApp:", err);
+      }
+    }
+  </script>
+</body>
+</html>
